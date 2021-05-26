@@ -20,6 +20,9 @@ export class CourseCardComponent implements OnInit {
   constructor() { 
 
   }
+  isImageVisible(){
+    return this.course && this.course.iconUrl;
+  }
 
   ngOnInit(): void {
   }

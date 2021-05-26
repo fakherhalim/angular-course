@@ -1,0 +1,5 @@
+/* state class applies only to course-cards of type beginner */
+.course-card.beginner {
+    background: lightsalmon;
+
+}
