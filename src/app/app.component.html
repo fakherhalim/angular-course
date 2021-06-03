@@ -11,14 +11,18 @@
     <div>{{price | currency: 'EUR'}}</div>
     <div>{{rate | percent}}</div>
 </div>
- --> 
+
 <div *ngFor = "let pair of course | keyvalue">
     {{pair.key + ': '+ pair.value}}
 </div>
+ --> 
  <div class="courses">
    <!--*ngFor is like JavaScript for(let course of courses) case sensitive ; rename index as i
     slicing 0:3 will only pass 0 and 1. 2 is non-inclusive-->
-    <course-card *ngFor="let course of courses | slice:0:2; index as i;"
+    <course-card 
         (courseSelected)="onCourseSelected($event)"
-        [course]="course" [cardIndex]="i + 1"></course-card>
- </div>
+        [course]="courses[0]"></course-card>
+    <course-card 
+        (courseSelected)="onCourseSelected($event)"
+        [course]="courses[1]"></course-card>
+ </div> 
