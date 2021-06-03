@@ -16,13 +16,17 @@
     {{pair.key + ': '+ pair.value}}
 </div>
  --> 
- <div class="courses">
+ <div class="courses" #container>
    <!--*ngFor is like JavaScript for(let course of courses) case sensitive ; rename index as i
-    slicing 0:3 will only pass 0 and 1. 2 is non-inclusive-->
-    <course-card 
+    slicing 0:3 will only pass 0 and 1. 2 is non-inclusive
+    template reference is #cardRef-->
+    <course-card #cardRef1
         (courseSelected)="onCourseSelected($event)"
         [course]="courses[0]"></course-card>
-    <course-card 
+    <course-card #cardRef2
         (courseSelected)="onCourseSelected($event)"
         [course]="courses[1]"></course-card>
+    <!-- <course-card 
+        (courseSelected)="onCourseSelected($event)"
+        [course]="courses[1]"></course-card>  -->
  </div> 

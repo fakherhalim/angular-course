@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {COURSES} from '../db-data';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { Course } from './model/course';
@@ -17,11 +17,17 @@ export class AppComponent {
   // course = COURSES[0];
 
 //@ViewChild is a template querying mechanism. It will return first matching element
-  @ViewChild(CourseCardComponent)
-  card: CourseCardComponent;
+  @ViewChild('cardRef1')
+  card1: CourseCardComponent;
+  @ViewChild('cardRef2')
+  card2: CourseCardComponent;
+  //ElementRef is a plain DOM element reference
+  @ViewChild('container', {read: ElementRef})
+  containerDiv: ElementRef;
+
 
   onCourseSelected(course: Course){
     // console.log("AppComponent clicked", course)
-    console.log(this.card);
+    console.log('containerDiv', this.card1);
   }
 }
